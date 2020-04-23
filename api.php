@@ -25,10 +25,9 @@ class api extends restful_api {
 
     function gettgiac($params)
     {
-        if($params[0]<=0||$params[1]<=0||$params[2]<=0)
+        if(empty($params[0])||empty($params[1])||empty($params[2])||!empty($params[3]))
         {
-            echo "Nhap sai yeu cau nhap lai";
-            
+            return array("status" => false, "data" => array());
         }
         else
         {
@@ -37,28 +36,30 @@ class api extends restful_api {
             $c=(double)$params[2];
             if($a*$a+$b*$b<=$c*$c||$b*$b+$c*$c<=$a*$a||$a*$a+$c*$c<=$b*$b)
             {
-               echo "Khong phai la ba canh tam giac";
-                
+                $data = "Khong phai ba canh tam giac";
+                return array("status" => true,"data" => array());
             }
             elseif($a*$a+$b*$b==$c*$c||$b*$b+$c*$c==$a*$a||$a*$a+$c*$c==$b*$b)
             {
-                echo "Day la tam giac vuong";
-                
+                $data = "Day la tam giac vuong";
+                return array("status" => true,"data" => array());
             }
             elseif($a==$b&&$b==$c&&$a==$c)
             {
-                echo "Day la tam giac deu";
+                $data = "Day la tam giac deu";
+                return array("status" => true,"data" => array());
                 
             }
             elseif($a==$b||$b==$c||$a==$c)
             {
-                echo "Day la tam giac can";
+                $data = "Day la tam giac can";
+                return array("status" => true,"data" => array());
                 
             }
             else
             {
-                echo "Day la tam giac thuong";
-                
+                $data = "Day la tam giac thuong";
+                return array("status" => true,"data" => array());
             }
         }
         

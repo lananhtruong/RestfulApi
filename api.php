@@ -15,53 +15,55 @@ class api extends restful_api {
         }
     }
 
-    function checkptbac2()
+    function checktamgiac()
     {
         if($this->method == 'GET')
         {
-            $this->response(200,$this->getptbac2($this->params));
+            $this->response(200,$this->gettgiac($this->params));
         }
     }
 
-    function getptbac2($params)
+    function gettgiac($params)
     {
-        if(empty($params[0])||empty($params[1])||empty($params[2])||!empty($params[3]))
+        if($params[0]<=0||$params[1]<=0||$params[2]<=0)
         {
+            $data = "Nhap sai yeu cau nhap lai";
             return array("status" => false, "data" => array());
         }
-        else{
+        else
+        {
             $a=(double)$params[0];
             $b=(double)$params[1];
             $c=(double)$params[2];
-            $denta = $b*$b - 4*$a*$c;
-            if($a==0)
+            if($a*$a+$b*$b<=$c*$c||$b*$b+$c*$c<=$a*$a||$a*$a+$c*$c<=$b*$b)
             {
-                return array("status" => false, "data" => array());
+                $data = "Khong phai la ba canh tam giac";
+                return array("status" => true,"data" => array());
             }
-            elseif($denta<0)
+            elseif($a*$a+$b*$b==$c*$c||$b*$b+$c*$c==$a*$a||$a*$a+$c*$c==$b*$b)
             {
-                $x1 = null;
-                $x2 = null;
-                $data = "Phuong trinh vo nghiem";
-                return array("status" => true,"data" => array("x1"=>$x1,"x2"=>$x2,"result"=>$data));
+                $data = "Day la tam giac vuong";
+                return array("status" => true,"data" => array());
             }
-            elseif($denta==0)
+            elseif($a==$b&&$b==$c&&$a==$c)
             {
-                $x1 = (double) round(-$b/(2*$a),2);
-                $x2 = (double) round(-$b/(2*$a),2);
-                $data = "Phuong trinh co nghiem kep";
-                return array("status" => true,"data" => array("x1"=>$x1,"x2"=>$x2,"result"=>$data));
+                $data = "Day la tam giac deu";
+                return array("status" => true,"data" => array());
             }
-            elseif ($denta>0)
+            elseif($a==$b||$b==$c||$a==$c)
             {
-                $x1 = (double) round((-$b-sqrt($denta))/(2*$a),2);
-                $x2 = (double) round((-$b+sqrt($denta))/(2*$a),2);
-                $data = "Phuong trinh vo nghiem";
-                return array("status" => true,"data" => array("x1"=>$x1,"x2"=>$x2,"result"=>$data));
+                $data = "Day la tam giac can";
+                return array("status" => true,"data" => array());
+            }
+            elseif
+            {
+                $data = "Day la tam giac thuong";
+                return array("status" => true,"data" => array());
             }
         }
-    }
-
+        
+        
+       
     function getyear($params)
     {
         if(empty($params[0])||!empty($params[1]))

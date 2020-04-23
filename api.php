@@ -27,8 +27,8 @@ class api extends restful_api {
     {
         if($params[0]<=0||$params[1]<=0||$params[2]<=0)
         {
-            $data = "Nhap sai yeu cau nhap lai";
-            return array("status" => false, "data" => array());
+            echo "Nhap sai yeu cau nhap lai";
+            
         }
         else
         {
@@ -37,28 +37,28 @@ class api extends restful_api {
             $c=(double)$params[2];
             if($a*$a+$b*$b<=$c*$c||$b*$b+$c*$c<=$a*$a||$a*$a+$c*$c<=$b*$b)
             {
-                $data = "Khong phai la ba canh tam giac";
-                return array("status" => true,"data" => array());
+               echo "Khong phai la ba canh tam giac";
+                
             }
             elseif($a*$a+$b*$b==$c*$c||$b*$b+$c*$c==$a*$a||$a*$a+$c*$c==$b*$b)
             {
-                $data = "Day la tam giac vuong";
-                return array("status" => true,"data" => array());
+                echo "Day la tam giac vuong";
+                
             }
             elseif($a==$b&&$b==$c&&$a==$c)
             {
-                $data = "Day la tam giac deu";
-                return array("status" => true,"data" => array());
+                echo "Day la tam giac deu";
+                
             }
             elseif($a==$b||$b==$c||$a==$c)
             {
-                $data = "Day la tam giac can";
-                return array("status" => true,"data" => array());
+                echo "Day la tam giac can";
+                
             }
-            elseif
+            else
             {
-                $data = "Day la tam giac thuong";
-                return array("status" => true,"data" => array());
+                echo "Day la tam giac thuong";
+                
             }
         }
         

@@ -1,5 +1,5 @@
   <script>
-    function getLinkJSONpt2() {
+    function getLinkJSONtgiac() {
         var a,b,c;
         a = document.getElementById("inputa").value;
         b = document.getElementById("inputb").value;
@@ -13,7 +13,7 @@
     }
     function getData()
     {
-        document.getElementById("txt_apijsonpt2").innerHTML = window.location.host +"/CloudPhpEX/api.php/checkptbac2/a/b/c";
+        document.getElementById("txt_apijsontgiac").innerHTML = window.location.host +"/CloudPhpEX/api.php/checktamgiac/a/b/c";
         document.getElementById("txt_apijsonyear").innerHTML = window.location.host +"/CloudPhpEX/api.php/checkyear/year";
     }
 </script>
@@ -27,8 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h1>Giải phương trình bậc 2</h1>
-<a>ax² + bx + c = 0</a>
+<h1>Kiểm tra tam giác</h1>
 <form>
     <label for="fname">a</label><br>
     <input type="number" id="inputa" name="fname"><br>
@@ -36,9 +35,9 @@
     <input type="number" id="inputb" name="lname"><br>
     <label for="lname">c</label><br>
     <input type="number" id="inputc" name="lname"><br>
-    <input type ="button" name="OKE" value="GETJSON" onclick="getLinkJSONpt2()">
+    <input type ="button" name="OKE" value="GETJSON" onclick="getLinkJSONtgiac()">
 </form>
-<h3>Api json pt2: </h3><h4 id="txt_apijsonpt2"></h4>
+
 <h1>Kiểm tra năm nhuần</h1>
 <form>
     <label for="lname">Nhập năm</label><br>
